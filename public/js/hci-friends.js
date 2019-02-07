@@ -10,6 +10,31 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+
+	function friendClick(e) { 
+	    // prevent the page from reloading      
+	    e.preventDefault();
+	    // In an event handler, $(this) refers to      
+	    // the object that triggered the event      
+	    // $(this).css("background-color", "#7fff00");
+	    /*
+	    var containingProject = $(this).closest(".project");
+	    var description = $(containingProject).find(".project-description");
+	    if (description.length == 0) {
+	       $(containingProject).append("<div class='project-description'><p>Description of the project.</p></div>");
+	    } else {
+	       description.fadeToggle("<p>Stop clicking on me! You just did it at " + (new Date()) + "</p>");
+	    }*/
+	    console.log("Friend name clicked");
+	    var currname = $(this).text()
+	    var newname = anagrammedName( currname );
+	    $(this).text( newname );
+	    e.preventDefault();
+	};
+
+	
+	$(".friends a").click(friendClick);
+
 }
 
 function anagrammedName(name) {
